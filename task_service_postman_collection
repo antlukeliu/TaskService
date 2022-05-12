@@ -10,7 +10,7 @@
 		{
 			"name": "GET tasks",
 			"request": {
-				"url": "localhost:8088/task",
+				"url": "localhost:8088/api/task",
 				"method": "GET",
 				"header": [],
 				"body": {},
@@ -21,7 +21,7 @@
 		{
 			"name": "Create Task",
 			"request": {
-				"url": "localhost:8088/task",
+				"url": "localhost:8088/api/task",
 				"method": "POST",
 				"header": [
 					{
@@ -41,7 +41,7 @@
 		{
 			"name": "PUT entire object",
 			"request": {
-				"url": "localhost:8088/task",
+				"url": "localhost:8088/api/task",
 				"method": "PUT",
 				"header": [
 					{
@@ -61,7 +61,7 @@
 		{
 			"name": "Delete Task",
 			"request": {
-				"url": "localhost:8088/task/3",
+				"url": "localhost:8088/api/task/3",
 				"method": "DELETE",
 				"header": [],
 				"body": {},
@@ -73,12 +73,13 @@
 			"name": "Search partial description",
 			"request": {
 				"url": {
-					"raw": "localhost:8088/task/sort?field=DESCRIPTION&partialSearchStr=Java",
+					"raw": "localhost:8088/api/task/sort?field=DESCRIPTION&partialSearchStr=Java",
 					"host": [
 						"localhost"
 					],
 					"port": "8088",
 					"path": [
+						"api",
 						"task",
 						"sort"
 					],
@@ -109,12 +110,13 @@
 			"name": "Search Complete True",
 			"request": {
 				"url": {
-					"raw": "localhost:8088/task/sort?field=COMPLETE_TRUE",
+					"raw": "localhost:8088/api/task/sort?field=COMPLETE_TRUE",
 					"host": [
 						"localhost"
 					],
 					"port": "8088",
 					"path": [
+						"api",
 						"task",
 						"sort"
 					],
@@ -139,12 +141,13 @@
 			"name": "Search Complete False",
 			"request": {
 				"url": {
-					"raw": "localhost:8088/task/sort?field=COMPLETE_FALSE",
+					"raw": "localhost:8088/api/task/sort?field=COMPLETE_FALSE",
 					"host": [
 						"localhost"
 					],
 					"port": "8088",
 					"path": [
+						"api",
 						"task",
 						"sort"
 					],
@@ -169,12 +172,13 @@
 			"name": "Sort Complete True First",
 			"request": {
 				"url": {
-					"raw": "localhost:8088/task/sort?field=COMPLETE_DESC",
+					"raw": "localhost:8088/api/task/sort?field=COMPLETE_DESC",
 					"host": [
 						"localhost"
 					],
 					"port": "8088",
 					"path": [
+						"api",
 						"task",
 						"sort"
 					],
@@ -199,12 +203,13 @@
 			"name": "Sort Complete False First",
 			"request": {
 				"url": {
-					"raw": "localhost:8088/task/sort?field=COMPLETE_ASC",
+					"raw": "localhost:8088/api/task/sort?field=COMPLETE_ASC",
 					"host": [
 						"localhost"
 					],
 					"port": "8088",
 					"path": [
+						"api",
 						"task",
 						"sort"
 					],

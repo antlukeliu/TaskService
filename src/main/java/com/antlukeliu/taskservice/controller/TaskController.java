@@ -9,7 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value="task")
+@CrossOrigin
+@RequestMapping(value="/api/task")
 public class TaskController {
 
     private TaskService taskService;
