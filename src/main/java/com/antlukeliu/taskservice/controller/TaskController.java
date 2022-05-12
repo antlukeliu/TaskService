@@ -1,5 +1,6 @@
 package com.antlukeliu.taskservice.controller;
 
+import com.antlukeliu.taskservice.model.SortEnum;
 import com.antlukeliu.taskservice.model.TaskRequest;
 import com.antlukeliu.taskservice.model.TaskResponse;
 import com.antlukeliu.taskservice.service.TaskService;
@@ -18,6 +19,11 @@ public class TaskController {
     @GetMapping
     public ResponseEntity<TaskResponse> getTasks() {
         return new ResponseEntity<>(new TaskResponse(taskService.getTasks()), HttpStatus.OK);
+    }
+
+    @GetMapping(value="/sort")
+    public ResponseEntity<TaskResponse> getSortedTask(@RequestParam SortEnum field, @RequestParam(required = false) String partialSearchStr) {
+        return new ResponseEntity<>(new TaskResponse(taskService.getSortedTasks(field, partialSearchStr)), HttpStatus.OK);
     }
 
     @PostMapping

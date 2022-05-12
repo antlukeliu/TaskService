@@ -2,6 +2,7 @@ package com.antlukeliu.taskservice.service;
 
 import com.antlukeliu.taskservice.domain.entity.Task;
 import com.antlukeliu.taskservice.domain.repository.TaskRepository;
+import com.antlukeliu.taskservice.model.SortEnum;
 import com.antlukeliu.taskservice.model.TaskDto;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
@@ -27,6 +28,19 @@ public class TaskServiceImpl implements TaskService {
         return taskRepository
                 .findAll(PageRequest.of(0, 20))
                 .map(this::convertToDto);
+    }
+
+    @Override
+    public Page<TaskDto> getSortedTasks(SortEnum field, String partialSearchStr) {
+
+        return switch(field) {
+            case COMPLETE_TRUE -> taskRepository.findAllByCompleted(PageRequest.of(0, 20), true).map(this::convertToDto);
+            case COMPLETE_FALSE -> taskRepository.findAllByCompleted(PageRequest.of(0, 20), false).map(this::convertToDto);
+            case COMPLETE_ASC -> taskRepository.findAllByOrderByCompletedAsc(PageRequest.of(0, 20)).map(this::convertToDto);
+            case COMPLETE_DESC -> taskRepository.findAllByOrderByCompletedDesc(PageRequest.of(0, 20)).map(this::convertToDto);
+            case DESCRIPTION -> taskRepository.findByDescriptionContaining(PageRequest.of(0, 20), partialSearchStr).map(this::convertToDto);
+            default -> throw new IllegalArgumentException("Unknown sort criteria");
+        };
     }
 
     @Override
