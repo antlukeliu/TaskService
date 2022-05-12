@@ -1,0 +1,229 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Task",
+		"_postman_id": "e399b377-8c88-44cd-c299-4239e7994cd8",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET tasks",
+			"request": {
+				"url": "localhost:8088/task",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create Task",
+			"request": {
+				"url": "localhost:8088/task",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"taskDto\": {\"description\":\"starting BE challenge\",\"dueDate\":\"2022-05-12T04:00:00Z\",\"completed\":false}}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "PUT entire object",
+			"request": {
+				"url": "localhost:8088/task",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"taskDto\": {\"id\":3, \"description\":\"starting BE challenge\",\"dueDate\":\"2022-05-12T04:00:00Z\",\"completed\":false}}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Task",
+			"request": {
+				"url": "localhost:8088/task/3",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Search partial description",
+			"request": {
+				"url": {
+					"raw": "localhost:8088/task/sort?field=DESCRIPTION&partialSearchStr=Java",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"task",
+						"sort"
+					],
+					"query": [
+						{
+							"key": "field",
+							"value": "DESCRIPTION",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "partialSearchStr",
+							"value": "Java",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Search Complete True",
+			"request": {
+				"url": {
+					"raw": "localhost:8088/task/sort?field=COMPLETE_TRUE",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"task",
+						"sort"
+					],
+					"query": [
+						{
+							"key": "field",
+							"value": "COMPLETE_TRUE",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Search Complete False",
+			"request": {
+				"url": {
+					"raw": "localhost:8088/task/sort?field=COMPLETE_FALSE",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"task",
+						"sort"
+					],
+					"query": [
+						{
+							"key": "field",
+							"value": "COMPLETE_FALSE",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Sort Complete True First",
+			"request": {
+				"url": {
+					"raw": "localhost:8088/task/sort?field=COMPLETE_DESC",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"task",
+						"sort"
+					],
+					"query": [
+						{
+							"key": "field",
+							"value": "COMPLETE_DESC",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Sort Complete False First",
+			"request": {
+				"url": {
+					"raw": "localhost:8088/task/sort?field=COMPLETE_ASC",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"task",
+						"sort"
+					],
+					"query": [
+						{
+							"key": "field",
+							"value": "COMPLETE_ASC",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
